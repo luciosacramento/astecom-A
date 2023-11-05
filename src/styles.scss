@@ -43,9 +43,9 @@ mat-icon{
 #sidenavcontainer{
   position:  absolute;
   z-index: 999999;
-  top: 0px;
-  width: 100%;
+  top: 30px;
   max-width: 952px;
+  padding-top: 10px;
 }
 
 .menu-spacer {
@@ -58,6 +58,7 @@ mat-icon{
 
 #menu-horizontal, #menu-only-logo{
   display: block;
+  margin: 0 !important;
   #logo-header{
     margin-top: 40px;
   }
@@ -65,7 +66,7 @@ mat-icon{
     font-weight: $font-bold;
     color: $cor-branco;
     text-transform: uppercase;
-    margin: -20px 10px 0 10px;
+    margin: -20px 0 0 0;
     span{
       font-size: 12px;
     }
@@ -84,6 +85,24 @@ mat-icon{
 .mat-toolbar{
   height: 112px;
   background: $cor-verde !important;
+}
+
+.mat-toolbar-row{
+  height: auto !important;
+}
+
+.mat-toolbar-multiple-rows {
+  min-height:auto !important;
+  width: auto !important;
+  border-radius: 10px;
+}
+.mat-mdc-button.mat-mdc-button-base{
+  height: 24px;
+}
+
+.mat-toolbar {
+  height: 33px;
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 700px) {
