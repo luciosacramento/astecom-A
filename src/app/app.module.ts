@@ -33,8 +33,7 @@ registerLocaleData(localePt);
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
+
     MatIconModule,
     MatButtonModule,
     ToastrModule.forRoot({

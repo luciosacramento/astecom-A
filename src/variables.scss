@@ -1,11 +1,13 @@
 $font-bold: 600;
 $font-medium:500;
-$cor-verde: #804144;
-$cor-dourado-claro: #DFA684;
-$cor-dourado-escuro: #B8764D;
+$cor-bordo: #804144;
+$cor-bordor-escuro: #55292B;
+$cor-azul: #1D86CC;
 $cor-branco: #fff;
 $cor-cinza: #767676;
 $cor-cinza-claro: #EAEAEA;
+$cor-verde: #006805;
+$cor-hr: #9E7375;
 
 @mixin basic-column() {
     display: flex;

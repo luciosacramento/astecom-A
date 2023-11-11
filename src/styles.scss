@@ -18,7 +18,7 @@ html, body { height: 100%; }
 }
 
 button {
-  background-image: linear-gradient(to top, #B8764D 0%, #DFA684 50%);
+  background-color: $cor-verde;
   color: white;
   padding: 6px 20px;
   border: none;
@@ -29,6 +29,10 @@ button {
 *{
   font-family: 'Montserrat', sans-serif !important;
   font-size: 15px;
+}
+
+h4{
+  color: #000;
 }
 
 app-root{
@@ -46,76 +50,82 @@ mat-icon{
   top: 30px;
   max-width: 952px;
   padding-top: 10px;
-}
-
-.menu-spacer {
-  flex: 1 1 auto;
-}
-
-#toggle-menu{
-  display: none;
-}
-
-#menu-horizontal, #menu-only-logo{
-  display: block;
-  margin: 0 !important;
-  #logo-header{
-    margin-top: 40px;
+  .cont-logo{
+    display: inline;
+    background-color: $cor-azul;
+    padding: 8px 5px 8px 20px;
+    border-radius: 0px 10px 10px 0; 
+    margin-right: 10px;
   }
-  a{
-    font-weight: $font-bold;
-    color: $cor-branco;
-    text-transform: uppercase;
-    margin: -20px 0 0 0;
-    span{
-      font-size: 12px;
+  ul{
+    background-color: $cor-bordor-escuro;
+    border-radius: 10px;
+    display: inline-block;
+    padding-left: 0;
+    li{
+      display: inline;
+      a{
+        font-size: 10px;
+        color: $cor-branco;
+      }
     }
   }
 }
 
-#menu-only-logo{
-  display: none;
+
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar{
+  color: #b99d9f;
+  --mat-tab-header-active-label-text-color: #fff;
+  --mat-tab-header-active-hover-label-text-color: $cor-branco;
+  --mat-tab-header-inactive-label-text-color: $cor-branco;
+  --mat-tab-header-inactive-hover-label-text-color: $cor-branco;
+  --mat-tab-header-active-label-text-color: $cor-branco;
+  --mat-tab-header-active-ripple-color: $cor-branco;
+  --mat-tab-header-inactive-ripple-color: $cor-branco;
+  --mat-tab-header-active-focus-label-text-color: $cor-branco;
+    --mat-tab-header-active-hover-label-text-color: $cor-branco;
+    --mat-tab-header-active-focus-indicator-color: $cor-branco;
+    --mat-tab-header-active-hover-indicator-color: $cor-branco;
 }
 
-#logo-header{
-  z-index: 9999;
-  position: relative;
+.mat-mdc-tab-group:hover, .mat-mdc-tab-nav-bar{
+  --mat-tab-header-active-hover-label-text-color: $cor-branco;
 }
 
-.mat-toolbar{
-  height: 112px;
-  background: $cor-verde !important;
+.bordo .mat-mdc-tab-group, .bordo .mat-mdc-tab-nav-bar{
+  --mat-tab-header-active-label-text-color: #fff;
+  --mat-tab-header-active-hover-label-text-color: $cor-branco;
+  --mat-tab-header-inactive-label-text-color: rgb(255 255 255 / 60%);
+  --mat-tab-header-inactive-hover-label-text-color: rgb(255 255 255 / 100%);
+  --mat-tab-header-active-label-text-color: $cor-branco;
+  --mat-tab-header-active-ripple-color: $cor-branco;
+  --mat-tab-header-inactive-ripple-color: $cor-branco;
+  --mat-tab-header-active-focus-label-text-color: $cor-branco;
+    --mat-tab-header-active-hover-label-text-color: $cor-branco;
+    --mat-tab-header-active-focus-indicator-color: $cor-branco;
+    --mat-tab-header-active-hover-indicator-color: $cor-branco;
+    color: $cor-branco;
 }
 
-.mat-toolbar-row{
-  height: auto !important;
+.bordo .mat-mdc-tab-group:hover, .bordo .mat-mdc-tab-nav-bar{
+  --mat-tab-header-active-hover-label-text-color: $cor-branco;
 }
 
-.mat-toolbar-multiple-rows {
-  min-height:auto !important;
-  width: auto !important;
-  border-radius: 10px;
-}
-.mat-mdc-button.mat-mdc-button-base{
-  height: 24px;
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border: 0;
 }
 
-.mat-toolbar {
-  height: 33px;
-  margin-top: 20px;
+.mdc-tab-indicator--active{
+  background: $cor-bordor-escuro !important;
+}
+
+.mat-mdc-tab-body-wrapper {
+  padding-top: 20px;
 }
 
 @media only screen and (max-width: 700px) {
-  #toggle-menu{
-    display: block;
-  }
-  #menu-horizontal{
-    display: none;
-  }
 
-  #menu-only-logo{
-    display: block;
-  }
 }
 
 .form-container {
@@ -149,30 +159,13 @@ mat-icon{
     
 }
 
-.link_instagram{
-  color: $cor-dourado-claro;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: $font-medium;
-  margin-top: 10px;
-  display: block;
-  &::before{
-    content: '';
-    background: url('/assets/images/icon-instagram.png') no-repeat;
-    width: 20px;
-    height: 20px;
-    display: inline-block !important;
-    position: relative;
-    margin: -8px 3px;
-  }
-}
 
 #contact-info {
 
   >div {
     flex: 1;
     max-width: calc(50% - 10px);
-    color: $cor-dourado-claro;
+    color: $cor-branco;
 
     .endereco{
       padding-left: 44px;
@@ -189,7 +182,7 @@ mat-icon{
     .endereco::before,.horario::before{
       content: "";
       background: url(/assets/images/icon-endereco.png) no-repeat;
-      width: 30px;
+      width: 33px;
       height: 40px;
       display: block !important;
       position: absolute;
@@ -201,6 +194,8 @@ mat-icon{
     }
       
     }
+
+    
   }
 
   #logo-footer {
@@ -221,4 +216,55 @@ mat-icon{
     }
   }
 }
+
+.section{
+  padding: 40px 110px;
+  background: $cor-branco;
+  h2{
+      font-size: 15px;
+      font-weight: $font-bold;
+      color: $cor-bordo;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: $font-medium;
+      text-align: center;
+      border-bottom: 1px solid $cor-bordo;
+      display: table;
+      margin: 0 auto 20px auto;
+  }
+  p{
+      color: $cor-cinza;
+      line-height: 1.5;
+      font-weight: $font-medium;
+      text-align: justify;
+  }
+  &.bordo{
+      background: $cor-bordo;
+
+      hr{
+        border: 1px solid $cor-hr;
+        margin: 20px 0;
+      }
+      
+      h2{
+        color: #fff;
+        border-bottom: 1px solid #fff;
+        display: table;
+        margin: 0 auto 30px auto;
+      }
+      p{
+          color: $cor-branco;
+      }
+
+      h2:last-child{
+          margin-top: 80px !important;
+      }
+  }
+
+  &.lojas{
+      padding: 40px 40px;
+  }
+
+}
+
     
