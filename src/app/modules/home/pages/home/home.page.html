@@ -1,40 +1,37 @@
 
-<section class="section bordo">
+<section class="section bordo" *ngIf="this.paginasFilho">
     <h2>quem somos</h2>
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
-        <mat-tab label="História">
-            <p>Fundada e registrada em 28 de outubro de 1987, a ASTECOM é uma entidade de caráter cultural, recreativo, social e de representação que congrega os Servidores e Conselheiros do Tribunal de Contas dos Municípios do Estado da Bahia.</p>
-            <p>Não tem fins lucrativos, e possui dentre os principais objetivos, prestar assistência médica, odontológica, de enfermagem, jurídica, financeira e social aos seus associados, na forma a ser regulamentada e dentro das possibilidades econômico-financeiras, podendo para tanto, celebrar convênios e contratos com entidades afins e receber auxílios e subvenções; realizar atividades de caráter sócio-recreativo, tais como prática de exercícios atléticos, competições esportivas amadorísticas, organizar colônia de férias, viagens de lazer, festividades e outras atividades correlatas; promover atividade visando incentivar o aperfeiçoamento técnico-profissional e cultural dos associados;</p>
-            <p>Constituem órgãos da Associação: a Assembléia Geral; o Conselho Fiscal;</p> 
-            <p>a Diretoria.</p>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" >
+        <mat-tab label="{{item.titulo}}" *ngFor="let item of this.paginasFilho" >
+          <div [innerHtml]="item.conteudo"></div>
         </mat-tab>
-        <mat-tab label="Missão">Content 2</mat-tab>
       </mat-tab-group>
 
 </section>
-<section class="section">
+<section class="section" *ngIf="diretorias && pagina">
     <h2>Administração</h2>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
-        <mat-tab label="Diretoria">
+        <mat-tab label="Diretoria" >
           <form>
             <h4 class="d-inline">Diretoria do Triênio</h4>
-            <mat-form-field appearance="outline" class="ms-2">
-              <mat-label>Favorite food</mat-label>
-              <mat-select [(ngModel)]="selectedValue" name="food">
-                  <mat-option *ngFor="let food of foods"  [value]="food.value">{{food.viewValue}}</mat-option>
+            <mat-form-field appearance="outline" class="ms-2" floatLabel="always">
+              <mat-select [(ngModel)]="selectedValue" name="diretorias" [placeholder]="diretorias[0].titulo" >
+
+                  <mat-option *ngFor="let item of diretorias; index as i"  [value]="i">{{item.titulo}}</mat-option>
               </mat-select>
             </mat-form-field>
           </form>
-
-            <p>Fundada e registrada em 28 de outubro de 1987, a ASTECOM é uma entidade de caráter cultural, recreativo, social e de representação que congrega os Servidores e Conselheiros do Tribunal de Contas dos Municípios do Estado da Bahia.</p>
-            <p>Não tem fins lucrativos, e possui dentre os principais objetivos, prestar assistência médica, odontológica, de enfermagem, jurídica, financeira e social aos seus associados, na forma a ser regulamentada e dentro das possibilidades econômico-financeiras, podendo para tanto, celebrar convênios e contratos com entidades afins e receber auxílios e subvenções; realizar atividades de caráter sócio-recreativo, tais como prática de exercícios atléticos, competições esportivas amadorísticas, organizar colônia de férias, viagens de lazer, festividades e outras atividades correlatas; promover atividade visando incentivar o aperfeiçoamento técnico-profissional e cultural dos associados;</p>
-            <p>Constituem órgãos da Associação: a Assembléia Geral; o Conselho Fiscal;</p> 
-            <p>a Diretoria.</p>
+          <div  [innerHtml]="this.diretorias[ConvertStringToNumber(selectedValue!)].conteudo">
+          </div>
+            
         </mat-tab>
-        <mat-tab label="Conselho fiscal">Content 2</mat-tab>
+        <mat-tab label="Conselho fiscal">
+          <div [innerHtml]="this.pagina.conteudo">
+          </div>
+        </mat-tab>
       </mat-tab-group>
 </section>
-<section class="section bordo">
+<section class="section bordo" *ngIf="configuracoes">
     <h2>contato</h2>
     <div >
         <form id="contact-form" class="cont_two_column" method="post" action="<?php bloginfo('template_url'); ?>/php/enviar_email.php">
@@ -54,21 +51,24 @@
    
     <div id="contact-info" class="cont_two_column">
         <div class="item">
-            <span class="endereco">
-                Rua Waldemar Falcão, 323 - Horto 40295-010
+            <span class="endereco" *ngIf="configuracoes" [innerHtml]="configuracoes.endereco" >
+                
             </span>
         </div>
         <div class="item">
             <span class="horario">
                 Parceiros<br>
             </span>
+            <div *ngFor="let item of parceiroList | keyvalue">    
+              <a [href]="item.value.link" target="_blank" id="logo-footer"><img [src]="item.value.imagem" alt="Logo do Parceiro" ></a>
+            </div>
         </div>
     </div>
 
+
     <hr>
 
-    <p class="text-center">© Copyright 2023 Astecom</p>
+    <p class="text-center" *ngIf="configuracoes" [innerHtml]="configuracoes.copyright"></p>
 
-    <img [src]="'./assets/images/logo-footer.png'" alt="" srcset="" id="logo-footer" >
 
 </section>
