@@ -1,0 +1,15 @@
+<section class="section" *ngIf="demonstrativo">
+    <h2>demonstrativo financeiro</h2>
+    <form>
+    <h4 class="d-inline">Ano</h4>
+    <mat-form-field appearance="outline" class="ms-2" floatLabel="always">
+        <mat-select [(ngModel)]="selectedValue" name="demonstrativo" [placeholder]="demonstrativo[0].titulo" >
+
+            <mat-option *ngFor="let item of demonstrativo; index as i"  [value]="i">{{item.titulo}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    </form>
+    <div  [innerHtml]="this.demonstrativo[ConvertStringToNumber(selectedValue!)].conteudo">
+    </div>
+
+</section>

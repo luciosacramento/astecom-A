@@ -2,14 +2,6 @@ import { Component } from '@angular/core';
 import { HomeService } from '../../home.service';
 import { toArray } from 'rxjs';
 
-interface Parceiro {
-  value: {
-    link: string;
-    imagem: string;
-  };
-
-}
-
 
 @Component({
   selector: 'app-home',
@@ -26,22 +18,14 @@ throw new Error('Method not implemented.');
     public paginasFilho: any | null = null;
     public diretorias: any | null = null;
     public pagina: any | null = null;
-    public configuracoes: any | null = null;
-    public parceiroList: Parceiro | null = null; 
 
-    public foods: any = [
-      {value: 'steak-0', viewValue: 'Steak'},
-      {value: 'pizza-1', viewValue: 'Pizza'},
-      {value: 'tacos-2', viewValue: 'Tacos'},
-    ];
-    
+
     constructor(private restHome:HomeService) { }
 
     ngOnInit(): void {
       this.getPaginasFilho(63);
       this.getDiretorias();
       this.getPagina(71);
-      this.getConfiguracoes();
     }
 
     public getPaginasFilho(id: number) {
@@ -59,17 +43,6 @@ throw new Error('Method not implemented.');
       .pipe(toArray())
       .subscribe((array) => {
         this.pagina = array[0];
-      });
-    }
-
-    public getConfiguracoes() {
-      const data$ = this.restHome.getConfiguracoes();
-      data$
-      .pipe(toArray())
-      .subscribe((array) => {
-        this.configuracoes = array[0];
-        this.parceiroList = this.configuracoes.parceiros;
-        console.log(this.parceiroList);
       });
     }
 

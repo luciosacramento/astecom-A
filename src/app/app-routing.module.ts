@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DemonstrativoFinanceiroPage } from './modules/home/pages/demonstrativo-financeiro/demonstrativo-financeiro.page';
+import { HomePage } from './modules/home/pages/home/home.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path:'home',loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)}
+  { path:'home',component:HomePage},
+  { path:'demonstrativo-financeiro',component:DemonstrativoFinanceiroPage},
+
 ];
 
 @NgModule({

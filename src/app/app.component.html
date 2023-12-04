@@ -7,13 +7,56 @@
         <img [src]="'./assets/images/logo-header.png'" alt="" srcset="" id="logo-header">
     </div>
     <ul>
-        <li><a href="#quemsomos" mat-button>Quem somos</a></li>
-        <li><a href="#administracao" mat-button>Administração</a></li>
-        <li><a href="#" mat-button>Demonstrativo Financeiro</a></li>
+        <li><a [routerLink]="['/home']" fragment="quemsomos" mat-button>Quem somos</a></li>
+        <li><a [routerLink]="['/home']" fragment="administracao" mat-button>Administração</a></li>
+        <li><a [routerLink]="['/demonstrativo-financeiro']" mat-button>Demonstrativo Financeiro</a></li>
         <li><a href="#" mat-button>Convênios</a></li>
-        <li><a href="#" mat-button>Contato</a></li>
+        <li><a [routerLink]="['/home']" fragment="contato" mat-button>Contato</a></li>
     </ul>
 </div>   
 <router-outlet></router-outlet>
+
+<section class="section bordo" *ngIf="configuracoes" id="contato">
+    <h2>contato</h2>
+    <div >
+        <form id="contact-form" class="cont_two_column" method="post" action="<?php bloginfo('template_url'); ?>/php/enviar_email.php">
+          <div class="item">
+            <input type="text" id="nome" name="nome" required placeholder="Nome">
+            <input type="email" id="email" name="email" required placeholder="E-mail">
+            <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
+          </div>
+          <div class="item">
+            <textarea id="mensagem" name="mensagem" required placeholder="Mensagem"></textarea>
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+    </div>
+
+    <hr>
+   
+    <div id="contact-info" class="cont_two_column">
+        <div class="item">
+            <span class="endereco" *ngIf="configuracoes" [innerHtml]="configuracoes.endereco" >
+                
+            </span>
+        </div>
+        <div class="item">
+            <span class="horario">
+                Parceiros<br>
+            </span>
+            <div *ngFor="let item of parceiroList | keyvalue">    
+              <a [href]="item.value.link" target="_blank" id="logo-footer"><img [src]="item.value.imagem" alt="Logo do Parceiro" ></a>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <p class="text-center" *ngIf="configuracoes" [innerHtml]="configuracoes.copyright"></p>
+
+
+</section>
+
 </div>
    

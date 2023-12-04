@@ -1,5 +1,5 @@
 
-<section class="section bordo" *ngIf="this.paginasFilho">
+<section class="section bordo" *ngIf="this.paginasFilho" id="quemsomos">
     <h2>quem somos</h2>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" >
         <mat-tab label="{{item.titulo}}" *ngFor="let item of this.paginasFilho" >
@@ -8,7 +8,7 @@
       </mat-tab-group>
 
 </section>
-<section class="section" *ngIf="diretorias && pagina">
+<section class="section" *ngIf="diretorias && pagina" id="administracao">
     <h2>Administração</h2>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
         <mat-tab label="Diretoria" >
@@ -30,45 +30,4 @@
           </div>
         </mat-tab>
       </mat-tab-group>
-</section>
-<section class="section bordo" *ngIf="configuracoes">
-    <h2>contato</h2>
-    <div >
-        <form id="contact-form" class="cont_two_column" method="post" action="<?php bloginfo('template_url'); ?>/php/enviar_email.php">
-          <div class="item">
-            <input type="text" id="nome" name="nome" required placeholder="Nome">
-            <input type="email" id="email" name="email" required placeholder="E-mail">
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
-          </div>
-          <div class="item">
-            <textarea id="mensagem" name="mensagem" required placeholder="Mensagem"></textarea>
-            <button type="submit">Enviar</button>
-          </div>
-        </form>
-    </div>
-
-    <hr>
-   
-    <div id="contact-info" class="cont_two_column">
-        <div class="item">
-            <span class="endereco" *ngIf="configuracoes" [innerHtml]="configuracoes.endereco" >
-                
-            </span>
-        </div>
-        <div class="item">
-            <span class="horario">
-                Parceiros<br>
-            </span>
-            <div *ngFor="let item of parceiroList | keyvalue">    
-              <a [href]="item.value.link" target="_blank" id="logo-footer"><img [src]="item.value.imagem" alt="Logo do Parceiro" ></a>
-            </div>
-        </div>
-    </div>
-
-
-    <hr>
-
-    <p class="text-center" *ngIf="configuracoes" [innerHtml]="configuracoes.copyright"></p>
-
-
 </section>

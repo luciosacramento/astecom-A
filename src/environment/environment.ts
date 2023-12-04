@@ -3,5 +3,5 @@ import {versao} from './version';
 export const environment = {
   production: false,
   versao:versao,
-  api: 'http://localhost/astecom-W/wp-json/astecom/v1/',
+  api: 'http://restrito.astecom-ba.com.br/wp-json/astecom/v1/',
 };
