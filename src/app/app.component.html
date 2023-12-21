@@ -19,14 +19,14 @@
 <section class="section bordo" *ngIf="configuracoes" id="contato">
     <h2>contato</h2>
     <div >
-        <form id="contact-form" class="cont_two_column" method="post" action="<?php bloginfo('template_url'); ?>/php/enviar_email.php">
+        <form id="contact-form" class="cont_two_column" [formGroup]="formGroup" (ngSubmit)="sendMail()">
           <div class="item">
-            <input type="text" id="nome" name="nome" required placeholder="Nome">
-            <input type="email" id="email" name="email" required placeholder="E-mail">
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
+            <input type="text" id="nome" formControlName="nome" required placeholder="Nome">
+            <input type="email" id="email" formControlName="email" required placeholder="E-mail">
+            <input type="tel" id="telefone" formControlName="telefone" placeholder="Telefone">
           </div>
           <div class="item">
-            <textarea id="mensagem" name="mensagem" required placeholder="Mensagem"></textarea>
+            <textarea id="mensagem" formControlName="mensagem" required placeholder="Mensagem"></textarea>
             <button type="submit">Enviar</button>
           </div>
         </form>
