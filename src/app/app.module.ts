@@ -6,7 +6,7 @@ import { GlobalErrorHandler } from './core/globalErrorHandler';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localePt from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
+import { NgIf, registerLocaleData } from '@angular/common';
 import { Utils } from './core/utils';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpConfigInterceptor } from './core/httpConfig.interceptor';
@@ -35,6 +35,7 @@ registerLocaleData(localePt);
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    NgIf,
     MatIconModule,
     MatButtonModule,
     ToastrModule.forRoot({

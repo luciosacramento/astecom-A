@@ -4,11 +4,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HomePage } from './pages/home/home.page';
 import { HomeRoutingModule } from './home-routing.module';
 import { DemonstrativoFinanceiroPage } from './pages/demonstrativo-financeiro/demonstrativo-financeiro.page';
+import { SimplesPage } from './pages/simples/simples.page';
 
 @NgModule({
   declarations: [
     HomePage,
-    DemonstrativoFinanceiroPage
+    DemonstrativoFinanceiroPage,
+    SimplesPage
   ],
   imports: [
     CommonModule,

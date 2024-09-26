@@ -1,5 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
@@ -16,7 +16,8 @@ import { ConfirmacaoDialog } from './dialogs/confirmacao/confirmacao.dialog';
         MaterialModule,
         RouterModule,
         ReactiveFormsModule,       
-        FormsModule
+        FormsModule,
+        NgIf
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
