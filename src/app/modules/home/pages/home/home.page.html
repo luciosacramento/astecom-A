@@ -1,9 +1,5 @@
 
 <section class="section bordo" *ngIf="this.paginasFilho" id="quemsomos">
-  <a [routerLink]="['/interna']"><img [src]="'./assets/images/eleicoes_2024_banner.jpg'" alt="" srcset="" /></a>
-</section>
-
-<section class="section bordo" *ngIf="this.paginasFilho" id="quemsomos">
     <h2>quem somos</h2>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" >
         <mat-tab label="{{item.titulo}}" *ngFor="let item of this.paginasFilho" >
